@@ -28,7 +28,7 @@ function! chores#set_default(var, val, ...)
 endfunction 
 
 let s:default_chores = {
-            \ 'About': 'A tiny plugin for running tedious tasks.'
+            \ 'About': 'echo "A tiny plugin for running tedious tasks."'
             \ }
 
 call chores#set_default('g:VimChores', s:default_chores)
