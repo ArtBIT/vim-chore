@@ -7,10 +7,11 @@
 "
 " }}}
 "
-"early exit if loaded
+" Early exit if loaded {{{
 if exists("chores#loaded")
     finish
 endif
+" }}}
 
 " Save CPO {{{
 let s:save_cpo = &cpo
@@ -18,26 +19,10 @@ set cpo&vim
 " }}}
 "
 
-" Default config options {{{
-" taken from https://github.com/Shougo/neomru.vim/blob/master/autoload/neomru.vim
-function! chores#set_default(var, val, ...)  
-    if !exists(a:var)
-        let alternate_var = get(a:000, 0, '')
-        let {a:var} = exists(alternate_var) ? {alternate_var} : a:val
-    endif
-endfunction 
-
-let s:default_chores = {
-            \ 'About': 'echo "A tiny plugin for running tedious tasks."'
-            \ }
-
-call chores#set_default('g:VimChores', s:default_chores)
-"}}}
- 
 " chores#get function {{{
 function! chores#get()
-    let chore_dict = exists('g:chores_dict_name') ? g:chores_dict_name : 'g:VimChores'
-	return {chore_dict}
+    let chore_dict_name = exists('g:chores_dict_name') ? g:chores_dict_name : 'g:VimChores'
+	return {chore_dict_name}
 endfunction
 "}}}
 
@@ -71,10 +56,12 @@ function! chores#run()
 endfunction
 "}}}
 
+" Init {{{
+let g:VimChores = {}
 nnoremap <leader>ch :call chores#run()<CR>
-
 "set script as loaded
 let chores#loaded = 1
+" }}}
 
 " Restore CPO {{{
 let &cpo = s:save_cpo
