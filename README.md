@@ -32,6 +32,10 @@ cp -r vim-chores/* ~/.vim/
 
 ```
 let g:VimChores = {'About': 'echo "This is a simple vim (neovim) plug-in to quickly run tedious tasks."'}
+" If you wish to use a different name for the chores dict global variable, just define the name in the following variable:
+g:chores_dict_name = 'CommonTasks'
+...
+let g:CommonTasks = extend(g:CommonTasks, {'Run Tests': 'npm test'})
 ```
 
 # LICENSE
