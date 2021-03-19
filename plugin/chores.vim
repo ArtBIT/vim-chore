@@ -27,11 +27,11 @@ function! chores#set_default(var, val, ...)
     endif
 endfunction 
 
-let s:defaults = {
+let s:default_chores = {
             \ 'About': 'A tiny plugin for running tedious tasks.'
             \ }
 
-call chores#set_default('g:Chores', s:defaults)
+call chores#set_default('g:VimChores', s:default_chores)
 "}}}
  
 " chores#get function {{{
